@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Join Clan SEAR OFFICIAL</title>
+  <style>
+    body {
+      background-color: #2c2c2c;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .form-container {
+      background-color: #3a3a3a;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      max-width: 600px;
+      width: 100%;
+    }
+    .form-container h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .form-container img {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 100px;
+      height: auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00aaff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <img src="logo-sear.jpg" alt="SEAR Logo">
+    <h1>Form Pendaftaran Clan SEAR OFFICIAL</h1>
+    <form action="send.php" method="POST">
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" name="NamaLengkap" required>
+      </div>
+      <div class="form-group">
+        <label>Nickname PUBG</label>
+        <input type="text" name="Nickname" required>
+      </div>
+      <div class="form-group">
+        <label>Umur</label>
+        <input type="number" name="Umur" required>
+      </div>
+      <div class="form-group">
+        <label>Role Favorit</label>
+        <select name="Role" required>
+          <option value="">-- Pilih Role --</option>
+          <option value="Rusher">Rusher</option>
+          <option value="Sniper">Sniper</option>
+          <option value="Support">Support</option>
+          <option value="Leader">Leader</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>ID Game PUBG</label>
+        <input type="text" name="IDGame" required>
+      </div>
+      <div class="form-group">
+        <label>Nomor WhatsApp Aktif</label>
+        <input type="text" name="WhatsApp" required>
+      </div>
+      <button type="submit">Kirim Pendaftaran</button>
+    </form>
+    <div class="footer">
+      Terima kasih telah mendaftar. Tetap disiplin, terus berkembang, dan jadilah bagian dari kekuatan SEAR OFFICIAL.
+    </div>
+  </div>
+</body>
+</html>
