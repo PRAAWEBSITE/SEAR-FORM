@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .cta-button {
+    width: 80%;
+    padding: 12px;
+    font-size: 1em;
+  }
+}
