@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang Clan - PRAA.ID</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="name">Tentang Clan SEAR</h1>
+    <p class="bio">Kami adalah Clan SEAR – komunitas PUBG Mobile yang berkomitmen membangun tim solid dan kompetitif.</p>
+
+    <div class="section">
+      <h2>🔥 Visi</h2>
+      <p>Membangun komunitas gaming yang profesional, solid, dan saling mendukung di berbagai ajang kompetitif.</p>
+    </div>
+
+    <div class="section">
+      <h2>🎯 Misi</h2>
+      <ul>
+        <li>Berpartisipasi aktif dalam scrim dan turnamen PUBG Mobile</li>
+        <li>Menumbuhkan kerja sama antar member</li>
+        <li>Memberi ruang berkembang bagi pemain muda dan berbakat</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🚀 Open Recruitment</h2>
+      <p>Kami membuka pendaftaran anggota baru untuk clan SEAR!</p>
+      <ul>
+        <li>Usia minimal 18 tahun</li>
+        <li>Aktif bermain PUBG Mobile</li>
+        <li>Siap berkontribusi dan mengikuti jadwal</li>
+      </ul>
+      <a href="https://forms.gle/your-form-link" class="link other">Isi Form Pendaftaran</a>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 SEAR OFFICIAL — Clan SEAR</p>
+    </footer>
+  </div>
+  <canvas id="snow"></canvas>
+<script>
+  // Efek Salju Smooth
+  const canvas = document.getElementById("snow");
+  const ctx = canvas.getContext("2d");
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+
+  const snowflakes = [];
+  for (let i = 0; i < 80; i++) {
+    snowflakes.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 3 + 1,
+      d: Math.random() + 1,
+    });
+  }
+
+  function drawSnowflakes() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    for (let i = 0; i < snowflakes.length; i++) {
+      let f = snowflakes[i];
+      ctx.moveTo(f.x, f.y);
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+    }
+    ctx.fill();
+    moveSnowflakes();
+  }
+
+  let angle = 0;
+  function moveSnowflakes() {
+    angle += 0.003;
+    for (let i = 0; i < snowflakes.length; i++) {
+      let f = snowflakes[i];
+      f.y += Math.pow(f.d, 2) + 0.5;
+      f.x += Math.sin(angle) * 1;
+
+      if (f.y > height) {
+        snowflakes[i] = {
+          x: Math.random() * width,
+          y: 0,
+          r: f.r,
+          d: f.d,
+        };
+      }
+    }
+  }
+
+  setInterval(drawSnowflakes, 30);
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+
+  canvas.style.position = "fixed";
+  canvas.style.top = 0;
+  canvas.style.left = 0;
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = "0";
+</script>
+<!-- Kontrol Musik -->
+<audio id="bg-music" loop>
+  <source src="brain.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+<button id="music-toggle" title="Toggle Musik">🔈</button>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const toggleBtn = document.getElementById("music-toggle");
+
+  let isPlaying = false;
+
+  toggleBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      toggleBtn.textContent = "🔈";
+    } else {
+      music.play();
+      toggleBtn.textContent = "🔊";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Auto play di desktop (note: tidak semua browser izinkan auto-play)
+  window.addEventListener("DOMContentLoaded", () => {
+    music.volume = 0.4;
+  });
+</script>
+
+</body>
+</html>
